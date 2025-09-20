@@ -63,22 +63,6 @@ Monastery360 is a comprehensive digital heritage platform designed to preserve, 
 - **Cultural Sensitivity**: Respectful representation of religious and cultural elements
 - **User Experience**: Intuitive navigation with clear call-to-action elements
 
-## Installation & Setup
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/sikkim-tourism/monastery360.git
-   cd monastery360
-   ```
-
-2. **Open the application**:
-   Simply open `index.html` in a modern web browser. No server setup required for basic functionality.
-
-3. **For development**:
-   - Use a local web server for full functionality (recommended for testing geolocation and service worker features)
-   - Python: `python -m http.server 8000`
-   - Node.js: `npx serve .`
-   - PHP: `php -S localhost:8000`
 
 ## Usage Guide
 
@@ -123,54 +107,6 @@ Monastery360 is a comprehensive digital heritage platform designed to preserve, 
 3. Choose visit date and group size
 4. Add any special requirements
 5. Submit the form for confirmation
-
-## Data Structure
-
-### Monastery Object
-```javascript
-{
-    id: 'rumtek',
-    name: 'Rumtek Monastery',
-    lat: 27.2865,
-    lng: 88.5616,
-    century: 18,
-    region: 'east',
-    description: 'The largest monastery in Sikkim',
-    images: ['url1', 'url2'],
-    audio: {
-        en: 'audio/rumtek_en.mp3',
-        hi: 'audio/rumtek_hi.mp3',
-        ne: 'audio/rumtek_ne.mp3',
-        bh: 'audio/rumtek_bh.mp3'
-    }
-}
-```
-
-### Archive Item Object
-```javascript
-{
-    id: 'manuscript-1',
-    category: 'manuscripts',
-    title: 'Ancient Buddhist Manuscript',
-    description: '17th century Tibetan manuscript',
-    date: '1680 CE',
-    location: 'Rumtek',
-    image: 'url_to_image'
-}
-```
-
-### Cultural Event Object
-```javascript
-{
-    id: 'losar-2025',
-    title: 'Losar Festival',
-    description: 'Tibetan New Year celebration',
-    date: '2025-09-25',
-    time: '6:00 AM - 8:00 PM',
-    location: 'Rumtek Monastery',
-    type: 'festival'
-}
-```
 
 ## Browser Compatibility
 
@@ -239,8 +175,8 @@ This project is developed for the Government of Sikkim and is subject to applica
 - Website: https://tourism.sikkim.gov.in
 
 **Technical Support**
-- Email: support@monastery360.in
-- Phone: +91 12345 67890
+- Email: kavyakurkar1@gmail.com
+- Phone: +91 6264615288
 - Hours: 24/7 support available
 
 ## Acknowledgments
