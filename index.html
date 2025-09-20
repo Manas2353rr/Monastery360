@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monastery360 - Digital Heritage Platform for Sikkim</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-temple"></i>
+                <span>Monastery360</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#virtual-tours" class="nav-link">Virtual Tours</a></li>
+                <li><a href="#interactive-map" class="nav-link">Interactive Map</a></li>
+                <li><a href="#digital-archives" class="nav-link">Digital Archives</a></li>
+                <li><a href="#audio-guide" class="nav-link">Audio Guide</a></li>
+                <li><a href="#cultural-calendar" class="nav-link">Cultural Calendar</a></li>
+                <li><a href="#booking" class="nav-link">Book Tours</a></li>
+            </ul>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ne">नेपाली</option>
+                    <option value="bh">भोटिया</option>
+                </select>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Sikkim's Sacred Heritage</h1>
+            <p class="hero-subtitle">Immerse yourself in the spiritual and cultural treasures of over 200 ancient monasteries through cutting-edge digital technology</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Monasteries</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">360°</span>
+                    <span class="stat-label">Virtual Tours</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">17th</span>
+                    <span class="stat-label">Century Origins</span>
+                </div>
+            </div>
+            <button class="cta-button" onclick="scrollToSection('virtual-tours')">
+                <i class="fas fa-play"></i>
+                Start Virtual Tour
+            </button>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-elements">
+                <div class="floating-element" style="--delay: 0s">
+                    <i class="fas fa-om"></i>
+                </div>
+                <div class="floating-element" style="--delay: 2s">
+                    <i class="fas fa-pray"></i>
+                </div>
+                <div class="floating-element" style="--delay: 4s">
+                    <i class="fas fa-mountain"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tours Section -->
+    <section id="virtual-tours" class="virtual-tours">
+        <div class="container">
+            <h2 class="section-title">360° Virtual Tours</h2>
+            <p class="section-subtitle">Step inside ancient monasteries and experience their sacred atmosphere</p>
+            
+            <div class="tour-gallery">
+                <div class="tour-card" data-monastery="rumtek">
+                    <div class="tour-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" alt="Rumtek Monastery">
+                        <div class="tour-overlay">
+                            <button class="play-button" onclick="openVirtualTour('rumtek')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Rumtek Monastery</h3>
+                    <p>The largest monastery in Sikkim, built in the 18th century</p>
+                    <div class="tour-info">
+                        <span><i class="fas fa-clock"></i> 15 min tour</span>
+                        <span><i class="fas fa-language"></i> 4 languages</span>
+                    </div>
+                </div>
+
+                <div class="tour-card" data-monastery="tsuklakhang">
+                    <div class="tour-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400" alt="Tsuklakhang Monastery">
+                        <div class="tour-overlay">
+                            <button class="play-button" onclick="openVirtualTour('tsuklakhang')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Tsuklakhang Monastery</h3>
+                    <p>Royal monastery with exquisite murals and architecture</p>
+                    <div class="tour-info">
+                        <span><i class="fas fa-clock"></i> 12 min tour</span>
+                        <span><i class="fas fa-language"></i> 4 languages</span>
+                    </div>
+                </div>
+
+                <div class="tour-card" data-monastery="enchey">
+                    <div class="tour-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1604608672516-b1610a4bb4ec?w=400" alt="Enchey Monastery">
+                        <div class="tour-overlay">
+                            <button class="play-button" onclick="openVirtualTour('enchey')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Enchey Monastery</h3>
+                    <p>A 200-year-old monastery perched on a hilltop</p>
+                    <div class="tour-info">
+                        <span><i class="fas fa-clock"></i> 10 min tour</span>
+                        <span><i class="fas fa-language"></i> 4 languages</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="interactive-map" class="interactive-map-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Monastery Map</h2>
+            <p class="section-subtitle">Explore all 200+ monasteries with detailed information and travel routes</p>
+            
+            <div class="map-container">
+                <div id="monastery-map"></div>
+                <div class="map-controls">
+                    <div class="filter-group">
+                        <label>Filter by Region:</label>
+                        <select id="regionFilter">
+                            <option value="all">All Regions</option>
+                            <option value="east">East Sikkim</option>
+                            <option value="west">West Sikkim</option>
+                            <option value="north">North Sikkim</option>
+                            <option value="south">South Sikkim</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Filter by Century:</label>
+                        <select id="centuryFilter">
+                            <option value="all">All Centuries</option>
+                            <option value="17">17th Century</option>
+                            <option value="18">18th Century</option>
+                            <option value="19">19th Century</option>
+                            <option value="20">20th Century</option>
+                        </select>
+                    </div>
+                    <button class="route-button" onclick="showNearestMonasteries()">
+                        <i class="fas fa-route"></i>
+                        Find Nearby
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Archives Section -->
+    <section id="digital-archives" class="digital-archives">
+        <div class="container">
+            <h2 class="section-title">Digital Archives</h2>
+            <p class="section-subtitle">Explore ancient manuscripts, murals, and historical documents</p>
+            
+            <div class="archive-search">
+                <div class="search-container">
+                    <input type="text" id="archiveSearch" placeholder="Search manuscripts, murals, documents...">
+                    <button onclick="searchArchives()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="ai-search-features">
+                    <span>AI-powered search:</span>
+                    <button class="ai-tag" onclick="searchByTag('manuscripts')">Manuscripts</button>
+                    <button class="ai-tag" onclick="searchByTag('murals')">Murals</button>
+                    <button class="ai-tag" onclick="searchByTag('thangka')">Thangka</button>
+                    <button class="ai-tag" onclick="searchByTag('prayer-wheels')">Prayer Wheels</button>
+                </div>
+            </div>
+
+            <div class="archive-gallery">
+                <div class="archive-item" data-category="manuscripts">
+                    <div class="archive-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Ancient Manuscript">
+                        <div class="archive-overlay">
+                            <button class="view-button" onclick="openArchiveItem('manuscript-1')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Ancient Buddhist Manuscript</h3>
+                    <p>17th century Tibetan manuscript from Rumtek Monastery</p>
+                    <div class="archive-meta">
+                        <span><i class="fas fa-calendar"></i> 1680 CE</span>
+                        <span><i class="fas fa-map-marker"></i> Rumtek</span>
+                    </div>
+                </div>
+
+                <div class="archive-item" data-category="murals">
+                    <div class="archive-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400" alt="Monastery Mural">
+                        <div class="archive-overlay">
+                            <button class="view-button" onclick="openArchiveItem('mural-1')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Buddha Mural</h3>
+                    <p>Exquisite wall painting depicting Buddha's life</p>
+                    <div class="archive-meta">
+                        <span><i class="fas fa-calendar"></i> 1750 CE</span>
+                        <span><i class="fas fa-map-marker"></i> Tsuklakhang</span>
+                    </div>
+                </div>
+
+                <div class="archive-item" data-category="thangka">
+                    <div class="archive-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" alt="Thangka Painting">
+                        <div class="archive-overlay">
+                            <button class="view-button" onclick="openArchiveItem('thangka-1')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3>Thangka Painting</h3>
+                    <p>Traditional Tibetan Buddhist scroll painting</p>
+                    <div class="archive-meta">
+                        <span><i class="fas fa-calendar"></i> 1720 CE</span>
+                        <span><i class="fas fa-map-marker"></i> Enchey</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Guide Section -->
+    <section id="audio-guide" class="audio-guide">
+        <div class="container">
+            <h2 class="section-title">Smart Audio Guide</h2>
+            <p class="section-subtitle">Location-based audio guides with offline mode for remote areas</p>
+            
+            <div class="audio-guide-container">
+                <div class="audio-guide-app">
+                    <div class="app-screen">
+                        <div class="app-header">
+                            <i class="fas fa-headphones"></i>
+                            <span>Monastery Audio Guide</span>
+                        </div>
+                        <div class="location-status">
+                            <div class="location-indicator">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Near Rumtek Monastery</span>
+                            </div>
+                            <div class="connection-status">
+                                <i class="fas fa-wifi"></i>
+                                <span>Online Mode</span>
+                            </div>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="control-btn" onclick="togglePlay()">
+                                <i class="fas fa-play" id="playIcon"></i>
+                            </button>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress" id="audioProgress"></div>
+                                </div>
+                                <span class="time" id="audioTime">0:00 / 0:00</span>
+                            </div>
+                            <button class="control-btn" onclick="toggleLanguage()">
+                                <i class="fas fa-language"></i>
+                            </button>
+                        </div>
+                        <div class="audio-info">
+                            <h4>Rumtek Monastery - History & Architecture</h4>
+                            <p>Narrated by: Tenzin Norbu, Head Monk</p>
+                        </div>
+                        <div class="offline-toggle">
+                            <label class="toggle">
+                                <input type="checkbox" id="offlineMode" onchange="toggleOfflineMode()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span>Offline Mode</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-features">
+                    <div class="feature">
+                        <i class="fas fa-bluetooth"></i>
+                        <h4>Bluetooth Beacons</h4>
+                        <p>Automatic audio triggers at specific locations within monasteries</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-map"></i>
+                        <h4>GPS Navigation</h4>
+                        <p>Location-based content delivery and route guidance</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-download"></i>
+                        <h4>Offline Access</h4>
+                        <p>Download content for areas with poor connectivity</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h4>Multi-language</h4>
+                        <p>Content available in English, Hindi, Nepali, and Tibetan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Calendar Section -->
+    <section id="cultural-calendar" class="cultural-calendar">
+        <div class="container">
+            <h2 class="section-title">Cultural Calendar</h2>
+            <p class="section-subtitle">Discover festivals, rituals, and events throughout the year</p>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="month-nav" onclick="changeMonth(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="currentMonth">September 2025</h3>
+                    <button class="month-nav" onclick="changeMonth(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Calendar will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="upcoming-events">
+                <h3>Upcoming Events</h3>
+                <div class="events-list">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">25</span>
+                            <span class="month">SEP</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Losar Festival</h4>
+                            <p>Tibetan New Year celebration at Rumtek Monastery</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-map-marker"></i> Rumtek Monastery</span>
+                                <span><i class="fas fa-clock"></i> 6:00 AM - 8:00 PM</span>
+                            </div>
+                            <button class="book-event-btn" onclick="bookEvent('losar-2025')">
+                                <i class="fas fa-calendar-plus"></i>
+                                Book Participation
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">28</span>
+                            <span class="month">SEP</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Butter Lamp Festival</h4>
+                            <p>Traditional butter lamp offering ceremony</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-map-marker"></i> Tsuklakhang Monastery</span>
+                                <span><i class="fas fa-clock"></i> 5:00 PM - 7:00 PM</span>
+                            </div>
+                            <button class="book-event-btn" onclick="bookEvent('butter-lamp-2025')">
+                                <i class="fas fa-calendar-plus"></i>
+                                Book Participation
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">2</span>
+                            <span class="month">OCT</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Meditation Retreat</h4>
+                            <p>Guided meditation session with senior monks</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-map-marker"></i> Enchey Monastery</span>
+                                <span><i class="fas fa-clock"></i> 6:00 AM - 12:00 PM</span>
+                            </div>
+                            <button class="book-event-btn" onclick="bookEvent('meditation-2025')">
+                                <i class="fas fa-calendar-plus"></i>
+                                Book Participation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Monastery Experience</h2>
+            <p class="section-subtitle">Reserve guided tours, cultural experiences, and accommodation</p>
+            
+            <div class="booking-container">
+                <form class="booking-form" onsubmit="submitBooking(event)">
+                    <div class="form-group">
+                        <label for="visitorName">Full Name</label>
+                        <input type="text" id="visitorName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="visitorEmail">Email Address</label>
+                        <input type="email" id="visitorEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="visitorPhone">Phone Number</label>
+                        <input type="tel" id="visitorPhone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="visitDate">Visit Date</label>
+                            <input type="date" id="visitDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="groupSize">Group Size</label>
+                            <select id="groupSize" required>
+                                <option value="">Select size</option>
+                                <option value="1">1 Person</option>
+                                <option value="2-5">2-5 People</option>
+                                <option value="6-10">6-10 People</option>
+                                <option value="11+">11+ People</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="monasterySelect">Select Monastery</label>
+                        <select id="monasterySelect" required>
+                            <option value="">Choose a monastery</option>
+                            <option value="rumtek">Rumtek Monastery</option>
+                            <option value="tsuklakhang">Tsuklakhang Monastery</option>
+                            <option value="enchey">Enchey Monastery</option>
+                            <option value="phodong">Phodong Monastery</option>
+                            <option value="pembayangtse">Pemayangtse Monastery</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experienceType">Experience Type</label>
+                        <select id="experienceType" required>
+                            <option value="">Select experience</option>
+                            <option value="virtual-tour">Virtual Tour + Guided Visit</option>
+                            <option value="cultural-immersion">Cultural Immersion Program</option>
+                            <option value="meditation-retreat">Meditation Retreat</option>
+                            <option value="photography-tour">Photography Tour</option>
+                            <option value="educational-visit">Educational Visit</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests or Requirements</label>
+                        <textarea id="specialRequests" rows="3" placeholder="Any dietary restrictions, accessibility needs, or special interests..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-booking-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Booking Request
+                    </button>
+                </form>
+                
+                <div class="booking-info">
+                    <h3>What's Included</h3>
+                    <ul class="inclusions">
+                        <li><i class="fas fa-check"></i> Professional local guide</li>
+                        <li><i class="fas fa-check"></i> 360° virtual tour access</li>
+                        <li><i class="fas fa-check"></i> Smart audio guide device</li>
+                        <li><i class="fas fa-check"></i> Traditional refreshments</li>
+                        <li><i class="fas fa-check"></i> Cultural participation certificate</li>
+                        <li><i class="fas fa-check"></i> Digital photo album</li>
+                    </ul>
+                    
+                    <div class="contact-support">
+                        <h4>Need Help?</h4>
+                        <p>Contact our support team for assistance with bookings</p>
+                        <div class="contact-info">
+                            <span><i class="fas fa-phone"></i> +91 12345 67890</span>
+                            <span><i class="fas fa-envelope"></i> support@monastery360.in</span>
+                            <span><i class="fas fa-clock"></i> 24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Monastery360</h3>
+                    <p>Preserving and sharing the rich cultural heritage of Sikkim's monasteries through digital innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#virtual-tours">Virtual Tours</a></li>
+                        <li><a href="#interactive-map">Interactive Map</a></li>
+                        <li><a href="#digital-archives">Digital Archives</a></li>
+                        <li><a href="#audio-guide">Audio Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Visitor Guidelines</a></li>
+                        <li><a href="#">Cultural Etiquette</a></li>
+                        <li><a href="#">Research Access</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker"></i> Tourism Department, Government of Sikkim</p>
+                        <p><i class="fas fa-phone"></i> +91 3592 202 111</p>
+                        <p><i class="fas fa-envelope"></i> tourism@sikkim.gov.in</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Government of Sikkim. All rights reserved. | Developed for cultural preservation and tourism promotion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Virtual Tour Modal -->
+    <div id="tourModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTourModal()">&times;</span>
+            <div id="panorama-container"></div>
+            <div class="tour-controls">
+                <button class="tour-control-btn" onclick="previousScene()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="scene-info">
+                    <h3 id="sceneTitle">Rumtek Monastery - Main Prayer Hall</h3>
+                    <p id="sceneDescription">Experience the grandeur of the main prayer hall with its intricate murals and golden statues.</p>
+                </div>
+                <button class="tour-control-btn" onclick="nextScene()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="language-selector-tour">
+                <select id="tourLanguage" onchange="changeTourLanguage()">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ne">नेपाली</option>
+                    <option value="bh">भोटिया</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
